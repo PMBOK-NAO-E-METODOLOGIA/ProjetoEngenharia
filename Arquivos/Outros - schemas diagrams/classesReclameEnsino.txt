@@ -1,0 +1,59 @@
+sup Pessoa{
+	Atributos:
+		-nome : string
+		
+	Métodos:
+		+Pessoa(string): void 
+		
+		+getNome(): string
+}
+
+sub Admin{
+
+	Atributos
+		-nomeDeUsuario : string
+		-senha : string
+		-idAdmin : string/int ?! <<< verificar
+	
+	
+	Métodos
+		+Admin(nome, nomeDeUsuario, senha): void
+	
+		+setSenha(string): void
+	
+		+modificarSenha(string,string): void
+		
+		+getNomeUsuario(): string
+		
+		+modificarNomeDeUsuario(string):void
+}
+
+sub User{
+	Atributos:
+		-comentário : string
+		-visualizarComentario : bool
+		
+	Métodos:
+		+User(string): void
+		
+		+getComentario(int): string
+		
+		+setVisto(string) : void
+}
+
+
+classe Global{
+	Atributos:
+		-nome : string
+		
+		-nomeDeUsuario : string
+		
+	Métodos:
+		+getNome() : string
+		
+		+setNome(string) : void
+		
+		+getNomeUsuario() : string
+		
+		+setNomeUsuario(string) : void
+}
