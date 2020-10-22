@@ -5,16 +5,16 @@ CREATE TABLE admins(
 	nome	        VARCHAR(50) NOT NULL,
 	nomeDeUsuario   VARCHAR(20) NOT NULL,
 	senha		    VARCHAR(20) NOT NULL,
-	dataDoCadastro  DATETIME NOT NULL,
-	estaAtivo		BOOLEAN --
+	dataDoCadastro  DATE NOT NULL,
+	estaAtivo		BIT --
 )
 
 CREATE TABLE comentarios(
 	id				 INT PRIMARY KEY IDENTITY, --VERIFICAR COM A GALERA A EXISTENCIA DESTE CAMPO ASSIM COMO OS DEMAIS
 	nome	   		 VARCHAR(50),
 	comentario 		 VARCHAR(1000) NOT NULL,   --VERIFICAR A QUANTIDADE DE CARACTERES
-	dataDoComentario DATETIME NOT NULL,
-	foiVisto		 BOOLEAN --
+	dataDoComentario DATE NOT NULL,
+	foiVisto		 BIT --
 )
 
 
