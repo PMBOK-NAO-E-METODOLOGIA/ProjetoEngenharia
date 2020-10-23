@@ -1,4 +1,4 @@
-﻿CREATE DATABASE reclameEnsino;
+﻿CREATE DATABASE ReclameEnsinoBD;
 
 CREATE TABLE tb_administradores(
 	idAdmin			   INT PRIMARY KEY IDENTITY,
