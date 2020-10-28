@@ -11,11 +11,21 @@ CREATE TABLE tb_administradores(
 )
 
 CREATE TABLE comentarios(
-	id				 INT PRIMARY KEY IDENTITY, --VERIFICAR COM A GALERA A EXISTENCIA DESTE CAMPO ASSIM COMO OS DEMAIS
-	nome	   		 VARCHAR(50),
-	comentario 		 VARCHAR(1000) NOT NULL,   --VERIFICAR A QUANTIDADE DE CARACTERES
-	dataDoComentario DATE NOT NULL,
-	foiVisto		 BIT --
+	idComentario	 	     INT PRIMARY KEY IDENTITY, --VERIFICAR COM A GALERA A EXISTENCIA DESTE CAMPO ASSIM COMO OS DEMAIS
+	nomeUsuario	   		     VARCHAR(50),
+	idTag				 	 int,
+	tituloComentario		 varchar(50) not null,
+	descricaoProblema		 VARCHAR(1000) NOT NULL,   --VERIFICAR A QUANTIDADE DE CARACTERES
+	dataComentario 	     	 DATE NOT NULL,
+	foiVisto		         char(1),
+	
+	constraint chk_foiVisto check(foiVisto = 'S' OR foiVisto = 'N'),
+	constraint  fk_tags_comentario foreign key (idTag) references tags(id)
+)
+
+create table tags(
+	id 		  int primary key identity,
+	descricao varchar(30) unique
 )
 
 
