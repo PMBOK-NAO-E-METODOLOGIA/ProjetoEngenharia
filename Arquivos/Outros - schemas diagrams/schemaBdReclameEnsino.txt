@@ -13,18 +13,26 @@ CREATE TABLE tb_administradores(
 CREATE TABLE comentarios(
 	idComentario	 	     INT PRIMARY KEY IDENTITY, --VERIFICAR COM A GALERA A EXISTENCIA DESTE CAMPO ASSIM COMO OS DEMAIS
 	nomeUsuario	   		     VARCHAR(50),
-	idTag				 	 int,
 	tituloComentario		 varchar(50) not null,
 	descricaoProblema		 VARCHAR(1000) NOT NULL,   --VERIFICAR A QUANTIDADE DE CARACTERES
 	dataComentario 	     	 DATE NOT NULL,
-	foiVisto		         char(1),
+	foiVisto		                 char(1),
 	
-	constraint chk_foiVisto check(foiVisto = 'S' OR foiVisto = 'N'),
-	constraint  fk_tags_comentario foreign key (idTag) references tags(id)
+	constraint chk_foiVisto check(foiVisto = 'S' OR foiVisto = 'N')
+)
+
+CREATE TABLE filtro_comentarios(
+
+	idComentario INT NOT NULL,
+	idTag INT NOT NULL,
+	
+	CONSTRAINT fk_tags_filtro FOREIGN KEY (idTag) REFERENCES tags(id),
+	CONSTRAINT fk_comentarios_filtro FOREIGN KEY (idComentario) REFERENCES comentarios(idComentario)
+
 )
 
 create table tags(
-	id 		  int primary key identity,
+	idTag 	  int primary key identity,
 	descricao varchar(30) unique
 )
 

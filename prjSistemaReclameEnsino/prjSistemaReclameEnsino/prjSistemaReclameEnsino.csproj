@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reclameensino\oo\model\Comentario.cs" />
     <Compile Include="reclameensino\oo\model\ConexaoBD.cs" />
     <Compile Include="reclameensino\oo\model\Pessoa.cs" />
     <Compile Include="reclameensino\oo\view\TelaCadastroAdministrador.cs">

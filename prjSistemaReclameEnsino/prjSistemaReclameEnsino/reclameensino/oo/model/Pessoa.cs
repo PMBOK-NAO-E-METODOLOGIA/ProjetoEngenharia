@@ -102,9 +102,9 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                     }
 
                 }
-                catch(SqlException Mensagem)
+                catch(SqlException)
                 {
-                    MessageBox.Show(Mensagem.Message);
+                    //MessageBox.Show(Mensagem.Message);
                     return false;
                 }
                 finally
