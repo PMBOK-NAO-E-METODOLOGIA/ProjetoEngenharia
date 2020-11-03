@@ -30,16 +30,16 @@
         {
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTituloComentario = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAutor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.chkTags = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAutor = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTituloComentario = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblLimiteCaracter = new System.Windows.Forms.Label();
             this.txtDescritivo = new System.Windows.Forms.RichTextBox();
             this.btnEnviarComentario = new System.Windows.Forms.Button();
-            this.lblLimiteCaracter = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,49 +71,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados da Descrição";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Título";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtTituloComentario
-            // 
-            this.txtTituloComentario.Location = new System.Drawing.Point(21, 39);
-            this.txtTituloComentario.Name = "txtTituloComentario";
-            this.txtTituloComentario.Size = new System.Drawing.Size(124, 20);
-            this.txtTituloComentario.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Autor";
-            // 
-            // txtAutor
-            // 
-            this.txtAutor.Location = new System.Drawing.Point(21, 84);
-            this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(252, 20);
-            this.txtAutor.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tags";
             // 
             // chkTags
             // 
@@ -126,6 +83,47 @@
             this.chkTags.Size = new System.Drawing.Size(179, 89);
             this.chkTags.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Tags";
+            // 
+            // txtAutor
+            // 
+            this.txtAutor.Location = new System.Drawing.Point(21, 84);
+            this.txtAutor.Name = "txtAutor";
+            this.txtAutor.Size = new System.Drawing.Size(252, 20);
+            this.txtAutor.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Autor";
+            // 
+            // txtTituloComentario
+            // 
+            this.txtTituloComentario.Location = new System.Drawing.Point(21, 39);
+            this.txtTituloComentario.Name = "txtTituloComentario";
+            this.txtTituloComentario.Size = new System.Drawing.Size(124, 20);
+            this.txtTituloComentario.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Título";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblLimiteCaracter);
@@ -136,6 +134,15 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Descritivo";
+            // 
+            // lblLimiteCaracter
+            // 
+            this.lblLimiteCaracter.AutoSize = true;
+            this.lblLimiteCaracter.Location = new System.Drawing.Point(164, 234);
+            this.lblLimiteCaracter.Name = "lblLimiteCaracter";
+            this.lblLimiteCaracter.Size = new System.Drawing.Size(86, 13);
+            this.lblLimiteCaracter.TabIndex = 1;
+            this.lblLimiteCaracter.Text = "<LimiteCaracter>";
             // 
             // txtDescritivo
             // 
@@ -157,16 +164,7 @@
             this.btnEnviarComentario.TabIndex = 4;
             this.btnEnviarComentario.Text = "Enviar comentário";
             this.btnEnviarComentario.UseVisualStyleBackColor = false;
-            this.btnEnviarComentario.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblLimiteCaracter
-            // 
-            this.lblLimiteCaracter.AutoSize = true;
-            this.lblLimiteCaracter.Location = new System.Drawing.Point(164, 234);
-            this.lblLimiteCaracter.Name = "lblLimiteCaracter";
-            this.lblLimiteCaracter.Size = new System.Drawing.Size(86, 13);
-            this.lblLimiteCaracter.TabIndex = 1;
-            this.lblLimiteCaracter.Text = "<LimiteCaracter>";
+            this.btnEnviarComentario.Click += new System.EventHandler(this.btnEnviarComentario_Click);
             // 
             // TelaPrincipalUsuario
             // 

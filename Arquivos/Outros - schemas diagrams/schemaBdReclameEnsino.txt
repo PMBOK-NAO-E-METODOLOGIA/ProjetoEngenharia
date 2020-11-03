@@ -33,7 +33,7 @@ CREATE TABLE filtro_comentarios(
 
 create table tags(
 	idTag 	  int primary key identity,
-	descricao varchar(30) unique
+	descTag   varchar(30) unique
 )
 
 

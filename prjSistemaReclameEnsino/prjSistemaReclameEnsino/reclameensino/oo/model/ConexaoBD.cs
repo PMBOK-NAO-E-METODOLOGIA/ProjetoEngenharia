@@ -13,7 +13,12 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
         private static string strConexao = prjSistemaReclameEnsino.Properties.Settings.Default.strConexao;
 
-        private SqlConnection connection = new SqlConnection(strConexao);
+        private SqlConnection connection;
+
+        public ConexaoBD()
+        {
+            this.connection = new SqlConnection(strConexao);
+        }
 
         public SqlConnection abrirConexao()
         {

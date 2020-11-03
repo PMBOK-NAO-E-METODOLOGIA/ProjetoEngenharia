@@ -26,6 +26,11 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         private char isVisto;
         private bool isCadastro;
 
+        public Comentario()
+        {
+
+        }
+
         public Comentario(string titulo, string usuario, string descritivo)
         {
             this.tituloComentario = titulo;
@@ -35,7 +40,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         }
 
         //Declaração do método de cadastro de comentários
-        public void CadastrarComentario()
+        public bool CadastrarComentario(List<string> listaEtiqueta)
         {
             cmd.CommandText = "INSERT INTO comentarios (nomeUsuario, tituloComentario, descricaoProblema, dataComentario, foiVisto) VALUES (@nomeUsuario, @tituloComentario, @descricaoProblema, @dataComentario, @foiVisto)";
 
@@ -44,6 +49,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             cmd.Parameters.AddWithValue("@descricaoProblema", descritivoProblema);
             cmd.Parameters.AddWithValue("@dataComentario", dataComentario.ToShortDateString());
             cmd.Parameters.AddWithValue("@foiVisto", isVisto);
+
 
             try
             {
@@ -58,12 +64,21 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                     isCadastro = false;
                 }
 
-                AssociarTagComentario(isCadastro);
+                if (isCadastro)
+                {
+                    return AssociarTagComentario(isCadastro, listaEtiqueta);
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao Cadastrar o Comentário!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                
             }
             catch(SqlException Mensagem)
             {
                 MessageBox.Show(Mensagem.Message);
-                isCadastro = false;
+                return false;
             }
             finally
             {
@@ -73,52 +88,63 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         }
 
         //Esse método realiza a associação entre o ID do Comentário e os IDs das Tags
-        private bool AssociarTagComentario(bool isCadastrado)
+        private bool AssociarTagComentario(bool isCadastrado, List<string> listaEtiqueta)
         {
+            
 
             if (isCadastrado)
             {
+                RetornarIDUltimoComentario();
+
+                cmd.Parameters.Clear();
+
                 cmd.CommandText = "INSERT INTO filtro_comentarios VALUES (@idComentario, @idTag)";
 
-                if (RetornarIDUltimoComentario() > 0)
-                {
-                    cmd.Parameters.AddWithValue("@idComentario", idComentario);
-
-                    if(RetornarIDTags() > 0)
-                    {
-                        cmd.Parameters.AddWithValue("@idTag", idTag);
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Falha ao retornar o ID do Comentário", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                cmd.Parameters.AddWithValue("@idComentario", idComentario);
+                    
+                /* Passar como parâmetro a quantidade de tags selecionadas para o comentário!
+                 * Logo, RetornarIDTags receberá uma lista contendo a descrição das tags,
+                 * e executará a consulta dos IDs destas TAGs.
+                 */
 
                 try
                 {
-                    cmd.Connection = conexao.abrirConexao();
+                    bool isTrue = true;
+                    //cmd.Connection = conexao.abrirConexao();
 
-                    if (cmd.ExecuteNonQuery() != -1)
+                    //O looping deve ocorrer aqui!!!
+                    foreach (string x in listaEtiqueta)
                     {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
 
+                        RetornarIDTags(x);
+
+                        cmd.Parameters.AddWithValue("@idTag", idTag);
+
+                        if (cmd.ExecuteNonQuery() != -1) // <<< Problema ao inserir na tabela de Associação de tags!
+                        {
+                            isTrue = true;
+                        }
+                        else
+                        {
+                            isTrue = false;
+                        }
+                        //return isTrue;
+                    }
+                    return isTrue;
                 }
                 catch (SqlException Mensagem)
                 {
                     MessageBox.Show(Mensagem.Message);
                     return false;
                 }
+                finally
+                {
+                    conexao.fecharConexao();
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao cadastrar o comentário!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Falha ao associar tags ao comentário!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             
@@ -128,24 +154,24 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
         private int RetornarIDUltimoComentario()
         {
-            cmd.CommandText = "SELECT TOP 1 idComentario FROM comentarios ORDER BY DESC";
+            cmd.CommandText = "SELECT TOP 1 idComentario FROM comentarios ORDER BY idComentario desc";
 
             try
             {
-                cmd.Connection = conexao.abrirConexao();
+               // cmd.Connection = conexao.abrirConexao();
 
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                 //Utilizar o ExecuteScalar() para retornar a primeira coluna e a primeira linha da tabela.
+                
+                if ((int) cmd.ExecuteScalar() != -1)
                 {
-                    if (dr.Read())
-                    {
-                        idComentario = dr.GetInt32(0);
-                        return idComentario;
-                    }
-                    else
-                    {
-                        return -1;
-                    }
+                    idComentario = (int)cmd.ExecuteScalar();
+                    return idComentario;
                 }
+                else
+                {
+                    return -1;
+                }
+                
 
             }
             catch(SqlException Mensagem)
@@ -153,35 +179,75 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                 MessageBox.Show(Mensagem.Message);
                 return -1;
             }
-            finally
-            {
-                conexao.fecharConexao();
-            }
         }
 
-        //Esse método irá retornar o ID das tags.
-        private int RetornarIDTags()
+        public List<string> RetornarDescEtiquetas()
         {
-            cmd.CommandText = "SELECT idTag FROM tags WHERE descricao = @descricao";
-
-            cmd.Parameters.AddWithValue("@descricao", nomeTag);
+            cmd.CommandText = "SELECT descTag FROM tags";
 
             try
             {
                 cmd.Connection = conexao.abrirConexao();
 
+                List<string> listaTags = new List<string>();
+
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
                     if (dr.Read())
                     {
-                        idTag = dr.GetInt32(0);
-                        return idTag;
+
+                        listaTags.Add(dr.GetString(0));
+
+                        while (dr.Read())
+                        {
+                            listaTags.Add(dr.GetString(0));
+                        }
+
+
+                        return listaTags;
+
                     }
                     else
                     {
-                        return -1;
+                        return null;
                     }
                 }
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Falha ao retornar as Etiquetas!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+
+        }
+
+        //Esse método irá retornar o ID das tags.
+        public int RetornarIDTags(string nomeEtiqueta)
+        {
+            cmd.CommandText = "SELECT idTag FROM tags WHERE descTag = @descTag";
+
+            cmd.Parameters.AddWithValue("@descTag", nomeEtiqueta);
+
+            try
+            {
+                //cmd.Connection = conexao.abrirConexao();
+
+                
+                if ((int) cmd.ExecuteScalar() != -1)
+                {
+                    idTag = (int)cmd.ExecuteScalar();
+                    return idTag;
+                }
+                else
+                {
+                    return -1;
+                }
+                
 
             }
             catch (SqlException Mensagem)
@@ -189,11 +255,9 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                 MessageBox.Show(Mensagem.Message);
                 return -1;
             }
-            finally
-            {
-                conexao.fecharConexao();
-            }
         }
 
+
+        
     }
 }

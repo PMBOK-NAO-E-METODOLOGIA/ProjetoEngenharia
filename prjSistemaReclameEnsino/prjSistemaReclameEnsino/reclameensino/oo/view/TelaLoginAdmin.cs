@@ -63,7 +63,6 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
         {
             Application.Run(new TelaPrincipalAdministrador());
         }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
