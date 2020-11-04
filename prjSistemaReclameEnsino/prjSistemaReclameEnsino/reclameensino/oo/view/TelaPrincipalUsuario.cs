@@ -78,7 +78,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                         listaEtiquetas.Add(x); // Adiciona na lista os itens(TAGs) selecionandos
                     }
 
-                    if (comentario.CadastrarComentario(listaEtiquetas))
+                    if (comentario.CadastrarComentario(listaEtiquetas) == 1)
                     {
                         MessageBox.Show("Comentário Enviado Com Sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
