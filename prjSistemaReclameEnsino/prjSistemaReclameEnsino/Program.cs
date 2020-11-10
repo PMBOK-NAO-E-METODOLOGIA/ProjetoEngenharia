@@ -17,7 +17,7 @@ namespace prjSistemaReclameEnsino
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaOpcoesEntrada());
+            Application.Run(new TelaPrincipalAdministrador());
         }
     }
 }

@@ -45,9 +45,6 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                     if (administrador.validarAcesso())
                     {
                         this.Close();
-                        thread = new Thread(abrirTelaAdmin);
-                        thread.SetApartmentState(ApartmentState.STA);
-                        thread.Start();
                     }
                     else
                     {

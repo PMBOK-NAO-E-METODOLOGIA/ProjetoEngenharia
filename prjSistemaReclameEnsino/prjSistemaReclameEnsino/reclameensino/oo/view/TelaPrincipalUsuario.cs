@@ -45,6 +45,8 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
         }
 
+        //Resumo:
+        // Cadastra um comentário na base de dados.
         private void EnviandoComentario()
         {
 
@@ -81,12 +83,14 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                     if (comentario.CadastrarComentario(listaEtiquetas) == 1)
                     {
                         MessageBox.Show("Comentário Enviado Com Sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Falha ao Enviar o comentário!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
                     }
-                    this.Close();
+                    
                 }
 
             }
@@ -97,5 +101,16 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
         {
             EnviandoComentario();
         }
+        //Resumo:
+        // Limpar a tela do comentário, desmarcar campos e demais.
+
+        private void LimparTela()
+        {
+            txtAutor.Clear();
+            txtDescritivo.Clear();
+            txtTituloComentario.Clear();
+
+        }
+
     }
 }
