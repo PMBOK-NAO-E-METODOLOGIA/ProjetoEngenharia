@@ -38,6 +38,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             
             private string nomeUsuario;
             private string senhaUsuario;
+            static private bool isEntrou;
             private DateTime dataAtual = DateTime.Today;
 
             public Administrador()
@@ -66,6 +67,15 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                 return nomeUsuario;
             }
             
+            public void setIsEntrou(bool entrada)
+            {
+                isEntrou = entrada;
+            }
+
+            public bool getIsEntrou()
+            {
+                return isEntrou;
+            }
             
             /* Está função abaixo irá cadastrar um administrador na base
              * ReclameEnsinoBD.mdf!
@@ -129,11 +139,13 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                     {
                         if (dr.Read())
                         {
-                            return true;
+                            isEntrou = true;
+                            return isEntrou;
                         }
                         else
                         {
-                            return false;
+                            isEntrou = false;
+                            return isEntrou;
                         }
                     }
 
