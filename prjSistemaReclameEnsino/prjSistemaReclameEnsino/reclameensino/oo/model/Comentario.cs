@@ -59,6 +59,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
                 if (cmd.ExecuteNonQuery() != -1)
                 {
+                    conexao.fecharConexao();
                     isCadastro = true;
                     int i = 0;
 
@@ -96,10 +97,10 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         //Esse método realiza a associação entre o ID do Comentário e os IDs das Tags
         private bool AssociarTagComentario(bool isCadastrado, string nomeTag)
         {
-            
-
             if (isCadastrado)
             {
+                cmd.Parameters.Clear();
+
                 cmd.CommandText = "INSERT INTO filtro_comentarios VALUES (@idComentario, @idTag)";
 
                 cmd.Parameters.AddWithValue("@idComentario", idComentario);
@@ -152,11 +153,13 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
         private int RetornarIDUltimoComentario()
         {
+            cmd.Parameters.Clear();
+
             cmd.CommandText = "SELECT TOP 1 idComentario FROM comentarios ORDER BY idComentario desc";
 
             try
             {
-               // cmd.Connection = conexao.abrirConexao();
+                cmd.Connection = conexao.abrirConexao();
 
                  //Utilizar o ExecuteScalar() para retornar a primeira coluna e a primeira linha da tabela.
                 
@@ -231,6 +234,8 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         //Esse método irá retornar o ID das tags.
         public int RetornarIDTags(string nomeEtiqueta)
         {
+            cmdDois.Parameters.Clear();
+
             cmdDois.CommandText = "SELECT idTag FROM tags WHERE descTag = @descTag";
 
             cmdDois.Parameters.AddWithValue("@descTag", nomeEtiqueta);
