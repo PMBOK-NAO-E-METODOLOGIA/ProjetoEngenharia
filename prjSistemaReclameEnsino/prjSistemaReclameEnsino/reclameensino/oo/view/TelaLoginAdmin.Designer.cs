@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLoginAdmin));
             this.btnEntrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(12, 131);
+            this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEntrar.Location = new System.Drawing.Point(81, 138);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.Size = new System.Drawing.Size(82, 36);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "&Entrar";
-            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 28);
+            this.label1.Location = new System.Drawing.Point(43, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 1;
@@ -57,14 +60,16 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(40, 44);
+            this.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUsuario.Location = new System.Drawing.Point(41, 56);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(170, 20);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(40, 92);
+            this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSenha.Location = new System.Drawing.Point(41, 104);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(170, 20);
             this.txtSenha.TabIndex = 4;
@@ -72,36 +77,28 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 76);
+            this.label2.Location = new System.Drawing.Point(43, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Senha";
             // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(158, 131);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 5;
-            this.btnSair.Text = "&Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
             // TelaLoginAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 166);
-            this.Controls.Add(this.btnSair);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(246, 191);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEntrar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaLoginAdmin";
-            this.Text = "Controle de Acesso";
+            this.Text = "Entrar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +111,5 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSair;
     }
 }

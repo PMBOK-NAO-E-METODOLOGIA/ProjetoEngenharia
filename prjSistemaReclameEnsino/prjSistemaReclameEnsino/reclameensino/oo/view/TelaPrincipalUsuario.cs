@@ -112,5 +112,14 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
         }
 
+        private void txtDescritivo_TextChanged(object sender, EventArgs e)
+        {
+            //TESTEM ESTE MÉTODO POIS NÃO CONSEGUI, JCAIQUE.
+            string texto = txtDescritivo.ToString();
+
+            int tamanho = lblLimiteCaracter.Text.Max() - texto.Length;
+
+            lblLimiteCaracter.Text = tamanho.ToString();
+        }
     }
 }

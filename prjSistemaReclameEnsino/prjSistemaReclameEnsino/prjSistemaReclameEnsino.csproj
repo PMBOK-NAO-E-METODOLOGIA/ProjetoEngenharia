@@ -118,6 +118,9 @@
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalAdministrador.resx">
       <DependentUpon>TelaPrincipalAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.pt-BR.resx">
+      <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.resx">
       <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastroAdministrador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
@@ -43,6 +44,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtNomePessoa);
             this.groupBox1.Controls.Add(this.label1);
@@ -102,9 +106,10 @@
             // txtNomePessoa
             // 
             this.txtNomePessoa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNomePessoa.Location = new System.Drawing.Point(39, 43);
+            this.txtNomePessoa.Location = new System.Drawing.Point(21, 43);
+            this.txtNomePessoa.Multiline = true;
             this.txtNomePessoa.Name = "txtNomePessoa";
-            this.txtNomePessoa.Size = new System.Drawing.Size(169, 20);
+            this.txtNomePessoa.Size = new System.Drawing.Size(200, 20);
             this.txtNomePessoa.TabIndex = 1;
             // 
             // label1
@@ -118,24 +123,35 @@
             // 
             // btnCadastrarAdministrador
             // 
-            this.btnCadastrarAdministrador.Location = new System.Drawing.Point(92, 232);
+            this.btnCadastrarAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastrarAdministrador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCadastrarAdministrador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCadastrarAdministrador.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCadastrarAdministrador.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarAdministrador.Location = new System.Drawing.Point(89, 232);
             this.btnCadastrarAdministrador.Name = "btnCadastrarAdministrador";
             this.btnCadastrarAdministrador.Size = new System.Drawing.Size(84, 43);
             this.btnCadastrarAdministrador.TabIndex = 1;
-            this.btnCadastrarAdministrador.Text = "Cadastrar Administrador";
-            this.btnCadastrarAdministrador.UseVisualStyleBackColor = true;
+            this.btnCadastrarAdministrador.Text = "Cadastrar";
+            this.btnCadastrarAdministrador.UseVisualStyleBackColor = false;
             this.btnCadastrarAdministrador.Click += new System.EventHandler(this.btnCadastrarAdministrador_Click);
             // 
             // TelaCadastroAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 287);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(270, 305);
             this.Controls.Add(this.btnCadastrarAdministrador);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaCadastroAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Administrador";
+            this.Load += new System.EventHandler(this.TelaCadastroAdministrador_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

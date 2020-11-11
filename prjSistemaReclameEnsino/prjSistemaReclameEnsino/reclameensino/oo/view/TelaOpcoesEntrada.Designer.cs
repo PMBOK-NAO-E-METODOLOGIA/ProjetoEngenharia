@@ -28,40 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaOpcoesEntrada));
             this.btnEntrarUsuario = new System.Windows.Forms.Button();
             this.btnEntrarAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEntrarUsuario
             // 
-            this.btnEntrarUsuario.Location = new System.Drawing.Point(34, 77);
+            this.btnEntrarUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEntrarUsuario.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEntrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrarUsuario.Location = new System.Drawing.Point(59, 54);
             this.btnEntrarUsuario.Name = "btnEntrarUsuario";
-            this.btnEntrarUsuario.Size = new System.Drawing.Size(92, 49);
+            this.btnEntrarUsuario.Size = new System.Drawing.Size(135, 53);
             this.btnEntrarUsuario.TabIndex = 3;
-            this.btnEntrarUsuario.Text = "Entrar como Usuário";
-            this.btnEntrarUsuario.UseVisualStyleBackColor = true;
+            this.btnEntrarUsuario.Text = "Fazer uma sugestão";
+            this.btnEntrarUsuario.UseVisualStyleBackColor = false;
             this.btnEntrarUsuario.Click += new System.EventHandler(this.btnEntrarUsuario_Click);
             // 
             // btnEntrarAdmin
             // 
-            this.btnEntrarAdmin.Location = new System.Drawing.Point(34, 23);
+            this.btnEntrarAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEntrarAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEntrarAdmin.Location = new System.Drawing.Point(59, 113);
             this.btnEntrarAdmin.Name = "btnEntrarAdmin";
-            this.btnEntrarAdmin.Size = new System.Drawing.Size(92, 48);
+            this.btnEntrarAdmin.Size = new System.Drawing.Size(135, 53);
             this.btnEntrarAdmin.TabIndex = 4;
-            this.btnEntrarAdmin.Text = "Entrar como Administrador";
-            this.btnEntrarAdmin.UseVisualStyleBackColor = true;
+            this.btnEntrarAdmin.Text = "Administrador";
+            this.btnEntrarAdmin.UseVisualStyleBackColor = false;
             this.btnEntrarAdmin.Click += new System.EventHandler(this.btnEntrarAdmin_Click);
             // 
             // TelaOpcoesEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(169, 151);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(253, 227);
             this.Controls.Add(this.btnEntrarAdmin);
             this.Controls.Add(this.btnEntrarUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaOpcoesEntrada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicial";
+            this.Text = "Reclame Ensino";
             this.ResumeLayout(false);
 
         }
