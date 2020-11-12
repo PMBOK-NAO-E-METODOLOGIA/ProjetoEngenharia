@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace prjSistemaReclameEnsino.reclameensino.oo.model
 {
@@ -37,6 +38,22 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             this.nomeUsuario = usuario;
             this.descritivoProblema = descritivo;
             this.isVisto = 'N';
+        }
+
+
+        public void setTituloComentario(string nome)
+        {
+            this.tituloComentario = nome;
+        }
+
+        public void setFoiVisto(char foiVisto)
+        {
+            this.isVisto = foiVisto;
+        }
+
+        public void setNomeUsuario(string nome)
+        {
+            this.nomeUsuario = nome;
         }
 
         //Declaração do método de cadastro de comentários
@@ -267,7 +284,74 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             }
         }
 
+        public SqlDataAdapter RetornarComentarios()
+        {
+            cmd.CommandText = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios";
 
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if(dr.Read() == false)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = cmd;
+                        return da;
+                    }
+                }
+
+            }
+            catch(SqlException)
+            {
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+        }
         
+        public SqlDataAdapter RetornarComentariosCondicionais()
+        {
+            cmd.CommandText = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios WHERE tituloComentario LIKE @tituloComentario AND nomeUsuario = @nomeUsuario AND foiVisto = @foiVisto";
+
+            cmd.Parameters.AddWithValue("@tituloComentario", "%" + tituloComentario + "%");
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read() == false)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = cmd;
+                        return da;
+                    }
+                }
+
+            }
+            catch (SqlException)
+            {
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+        }
+
+
     }
 }

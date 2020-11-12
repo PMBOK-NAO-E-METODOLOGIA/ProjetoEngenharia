@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,16 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 {
     public partial class TelaPrincipalAdministrador : Form
     {
+
+        SqlDataAdapter da = new SqlDataAdapter();
+        DataSet dataSet = new DataSet();
+
         Pessoa.Administrador admin = new Pessoa.Administrador();
+        Comentario comentario = new Comentario();
+
+        bool isTitulo;
+        bool isAnonimo;
+        bool isVisto;
 
 
         public TelaPrincipalAdministrador()
@@ -59,7 +69,69 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 gbComentarios.Visible = true;
                 lblUsuario.Visible = true;
 
+                PreencherComboBoxEtiquetas();
+                PreencherDataGridTimeLine();
+                ConstruirColunasLinhasDGV();
+                
+
             }
         }
+
+        private void PreencherComboBoxEtiquetas()
+        {
+            List<string> nomeEtiquetas = new List<string>();
+
+            nomeEtiquetas = comentario.RetornarDescEtiquetas();
+
+            foreach(string x in nomeEtiquetas)
+            {
+                cbEtiquetas.Items.Add(x);
+            }
+        }
+
+        private void PreencherDataGridTimeLine()
+        {
+            da = comentario.RetornarComentarios();
+
+            da.Fill(dataSet);
+
+            dgvComentarios.DataSource = dataSet;
+            dgvComentarios.DataMember = dataSet.Tables[0].TableName;
+
+
+        }
+
+        private void ConstruirColunasLinhasDGV()
+        {
+            //Definindo os nomes de variáveis dos objetos
+            
+            dataSet.Tables[0].Columns[0].ColumnName = "ID";
+            dataSet.Tables[0].Columns[1].ColumnName = "Título";
+            dataSet.Tables[0].Columns[2].ColumnName = "Data de Entrada";
+            
+
+            //Definindo os rótulos
+            dataSet.Tables[0].Columns[0].Caption = "idComentarioDGV";
+            dataSet.Tables[0].Columns[1].Caption = "tituloComentarioDGV";
+            dataSet.Tables[0].Columns[2].Caption = "dataComentarioDGV";
+            
+        }
+
+        private void btnFiltrarComentarios_Click(object sender, EventArgs e)
+        {
+            
+        }
+        /* Continuação daqui....
+         * 
+         * O método abaixo irá filtrar de forma "dinâmica", dizendo aos tipos booleanos
+         * se foi inserido, se é verdadeiro ou não....
+         * para deixar uma string de SQL mais enxuta!
+         * 
+         */
+        private void Filtragem()
+        {
+            string titulo = txtTitulo.Text;
+        }
+
     }
 }
