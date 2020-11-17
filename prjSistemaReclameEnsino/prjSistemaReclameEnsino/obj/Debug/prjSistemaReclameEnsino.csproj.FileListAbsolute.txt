@@ -1,6 +1,5 @@
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.csprojAssemblyReference.cache
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.Properties.Resources.resources
-C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaOpcoesEntrada.resources
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalAdministrador.resources
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalUsuario.resources
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.csproj.GenerateResource.cache
@@ -12,3 +11,20 @@ C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\P
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.exe
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.pdb
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaLoginAdmin.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.csprojAssemblyReference.cache
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.Properties.Resources.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaCadastroAdministrador.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaLoginAdmin.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaOpcoesEntrada.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalAdministrador.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalUsuario.resources
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.csproj.GenerateResource.cache
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.csproj.CoreCompileInputs.cache
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.exe.config
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.exe
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.pdb
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.exe
+C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.pdb
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalUsuario.pt-BR.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\pt-BR\prjSistemaReclameEnsino.resources.dll
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\pt-BR\prjSistemaReclameEnsino.resources.dll

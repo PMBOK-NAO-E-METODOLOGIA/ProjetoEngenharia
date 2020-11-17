@@ -25,7 +25,6 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         private string nomeTag;
         private char isVisto;
         private bool isCadastro;
-
         public Comentario()
         {
 
@@ -37,6 +36,16 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             this.nomeUsuario = usuario;
             this.descritivoProblema = descritivo;
             this.isVisto = 'N';
+        }
+
+
+        public void setTituloComentario(string titulo)
+        {
+            this.tituloComentario = titulo;
+        }
+        public void setNomeTag(string nomeTag)
+        {
+            this.nomeTag = nomeTag;
         }
 
         //Declaração do método de cadastro de comentários
@@ -196,7 +205,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
                 List<string> listaTags = new List<string>();
 
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                using (SqlDataReader dr = cmd.ExecuteReader()) // Resolvido! Conexão anterior estava aberta ainda!
                 {
                     if (dr.Read())
                     {
@@ -267,7 +276,48 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             }
         }
 
+        public SqlDataAdapter RetornarTodosComentarios()
+        {
+            cmd.CommandText = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios";
 
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                using(SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        return da;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
+            }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message);
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+
+        }
+        /*
+        public SqlDataAdapter RetornarComentariosFiltrados(bool foiVisto, bool eAnonimo)
+        {
+            if ()
+            {
+
+            }
+        }
         
+        */
     }
 }

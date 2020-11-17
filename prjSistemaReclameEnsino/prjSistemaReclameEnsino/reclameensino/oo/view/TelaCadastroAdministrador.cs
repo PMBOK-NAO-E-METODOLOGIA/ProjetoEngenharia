@@ -56,10 +56,11 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
                     }
                 }
-            }
+            }            
+        }
+        private void TelaCadastroAdministrador_Load(object sender, EventArgs e)
+        {
 
-
-            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalUsuario));
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkTags = new System.Windows.Forms.CheckedListBox();
@@ -46,139 +47,101 @@
             // 
             // btnSair
             // 
+            resources.ApplyResources(this.btnSair, "btnSair");
             this.btnSair.BackColor = System.Drawing.Color.Red;
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(12, 279);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(96, 53);
-            this.btnSair.TabIndex = 1;
-            this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.chkTags);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtAutor);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTituloComentario);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 259);
-            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados da Descrição";
             // 
             // chkTags
             // 
+            resources.ApplyResources(this.chkTags, "chkTags");
             this.chkTags.BackColor = System.Drawing.Color.Silver;
             this.chkTags.CheckOnClick = true;
-            this.chkTags.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkTags.FormattingEnabled = true;
-            this.chkTags.Location = new System.Drawing.Point(21, 142);
             this.chkTags.Name = "chkTags";
-            this.chkTags.Size = new System.Drawing.Size(179, 89);
-            this.chkTags.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 126);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tags";
             // 
             // txtAutor
             // 
-            this.txtAutor.Location = new System.Drawing.Point(21, 84);
+            resources.ApplyResources(this.txtAutor, "txtAutor");
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(252, 20);
-            this.txtAutor.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 68);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Autor";
             // 
             // txtTituloComentario
             // 
-            this.txtTituloComentario.Location = new System.Drawing.Point(21, 39);
+            resources.ApplyResources(this.txtTituloComentario, "txtTituloComentario");
             this.txtTituloComentario.Name = "txtTituloComentario";
-            this.txtTituloComentario.Size = new System.Drawing.Size(124, 20);
-            this.txtTituloComentario.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 23);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Título";
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.lblLimiteCaracter);
             this.groupBox2.Controls.Add(this.txtDescritivo);
-            this.groupBox2.Location = new System.Drawing.Point(318, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(266, 259);
-            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Descritivo";
             // 
             // lblLimiteCaracter
             // 
-            this.lblLimiteCaracter.AutoSize = true;
-            this.lblLimiteCaracter.Location = new System.Drawing.Point(164, 234);
+            resources.ApplyResources(this.lblLimiteCaracter, "lblLimiteCaracter");
             this.lblLimiteCaracter.Name = "lblLimiteCaracter";
-            this.lblLimiteCaracter.Size = new System.Drawing.Size(86, 13);
-            this.lblLimiteCaracter.TabIndex = 1;
-            this.lblLimiteCaracter.Text = "<LimiteCaracter>";
             // 
             // txtDescritivo
             // 
-            this.txtDescritivo.Location = new System.Drawing.Point(17, 19);
+            resources.ApplyResources(this.txtDescritivo, "txtDescritivo");
             this.txtDescritivo.Name = "txtDescritivo";
-            this.txtDescritivo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtDescritivo.Size = new System.Drawing.Size(233, 212);
-            this.txtDescritivo.TabIndex = 0;
-            this.txtDescritivo.Text = "";
+            this.txtDescritivo.TextChanged += new System.EventHandler(this.txtDescritivo_TextChanged);
             // 
             // btnEnviarComentario
             // 
-            this.btnEnviarComentario.BackColor = System.Drawing.Color.Yellow;
-            this.btnEnviarComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.btnEnviarComentario, "btnEnviarComentario");
+            this.btnEnviarComentario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnEnviarComentario.ForeColor = System.Drawing.Color.Black;
-            this.btnEnviarComentario.Location = new System.Drawing.Point(474, 279);
             this.btnEnviarComentario.Name = "btnEnviarComentario";
-            this.btnEnviarComentario.Size = new System.Drawing.Size(110, 53);
-            this.btnEnviarComentario.TabIndex = 4;
-            this.btnEnviarComentario.Text = "Enviar comentário";
             this.btnEnviarComentario.UseVisualStyleBackColor = false;
             this.btnEnviarComentario.Click += new System.EventHandler(this.btnEnviarComentario_Click);
             // 
             // TelaPrincipalUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 342);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.btnEnviarComentario);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSair);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TelaPrincipalUsuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Central do Usuário";
             this.Load += new System.EventHandler(this.TelaPrincipalUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -78,12 +78,6 @@
     <Compile Include="reclameensino\oo\view\TelaLoginAdmin.Designer.cs">
       <DependentUpon>TelaLoginAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="reclameensino\oo\view\TelaOpcoesEntrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reclameensino\oo\view\TelaOpcoesEntrada.Designer.cs">
-      <DependentUpon>TelaOpcoesEntrada.cs</DependentUpon>
-    </Compile>
     <Compile Include="reclameensino\oo\view\TelaPrincipalAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +106,11 @@
     <EmbeddedResource Include="reclameensino\oo\view\TelaLoginAdmin.resx">
       <DependentUpon>TelaLoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reclameensino\oo\view\TelaOpcoesEntrada.resx">
-      <DependentUpon>TelaOpcoesEntrada.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalAdministrador.resx">
       <DependentUpon>TelaPrincipalAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.pt-BR.resx">
+      <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.resx">
       <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
@@ -140,6 +134,14 @@
       <DependentUpon>ReclameEnsinoBD.mdf</DependentUpon>
     </Content>
     <Content Include="reclameensino\oo\icons\admin.png" />
+    <None Include="reclameensino\oo\icons\loupe%282%29.ico" />
+    <None Include="reclameensino\oo\icons\loupe%281%29.ico" />
+    <None Include="reclameensino\oo\icons\loupe.ico" />
+    <None Include="reclameensino\oo\icons\plus.ico" />
+    <None Include="reclameensino\oo\icons\formulario-de-registro.ico" />
+    <None Include="reclameensino\oo\icons\option.ico" />
+    <None Include="reclameensino\oo\icons\comment.ico" />
+    <None Include="ui-icons\log-in_1.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

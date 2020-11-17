@@ -16,6 +16,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
     {
 
         Comentario comentario;
+        int qtdCaracteres;
 
         public TelaPrincipalUsuario()
         {
@@ -69,6 +70,11 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 }
                 else
                 {
+                    if (String.IsNullOrEmpty(autor))
+                    {
+                        autor = "ANÔNIMO";
+                    }
+
                     comentario = new Comentario(titulo, autor, descritivo);
 
                     //Declarar um lista que será passada contendo a descrição das tags!
@@ -112,5 +118,19 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
         }
 
+        private void txtDescritivo_TextChanged(object sender, EventArgs e)
+        {
+            //Continuar depois
+
+
+            /*
+             * //TESTEM ESTE MÉTODO POIS NÃO CONSEGUI, JCAIQUE.
+            string texto = txtDescritivo.ToString();
+
+            int tamanho = lblLimiteCaracter.Text.Max() - texto.Length;
+
+            lblLimiteCaracter.Text = tamanho.ToString();
+             */
+        }
     }
 }
