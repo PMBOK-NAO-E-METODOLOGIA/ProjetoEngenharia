@@ -25,6 +25,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
         private string nomeTag;
         private char isVisto;
         private bool isCadastro;
+
         public Comentario()
         {
 
@@ -38,7 +39,18 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             this.isVisto = 'N';
         }
 
-
+        public int getIdComentario()
+        {
+            return idComentario;
+        }
+        public void setIdComentario(int id)
+        {
+            this.idComentario = id;
+        }
+        public void setIsVisto(char isVisto)
+        {
+            this.isVisto = isVisto;
+        }
         public void setTituloComentario(string titulo)
         {
             this.tituloComentario = titulo;
@@ -56,7 +68,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             cmd.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
             cmd.Parameters.AddWithValue("@tituloComentario", tituloComentario);
             cmd.Parameters.AddWithValue("@descricaoProblema", descritivoProblema);
-            cmd.Parameters.AddWithValue("@dataComentario", DateTime.Now.ToShortDateString());
+            cmd.Parameters.AddWithValue("@dataComentario", DateTime.Now);
             cmd.Parameters.AddWithValue("@foiVisto", isVisto);
 
 
@@ -309,15 +321,214 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             }
 
         }
-        /*
-        public SqlDataAdapter RetornarComentariosFiltrados(bool foiVisto, bool eAnonimo)
+        //Criar tela de resumo do comentário!!!!!
+        public SqlDataAdapter RetornarComentariosFiltrados(string cmdSql)
         {
-            if ()
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = cmdSql;
+
+            if (String.IsNullOrEmpty(nomeTag) != true)
             {
+                cmd.Parameters.AddWithValue("@descTag", nomeTag);
+            }
+
+
+            if (String.IsNullOrEmpty(tituloComentario) != true)
+            {
+                cmd.Parameters.AddWithValue("@tituloComentario", tituloComentario);
+            }
+
+            cmd.Parameters.AddWithValue("@foiVisto", isVisto);
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        return da;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message); // <-- Deve ser declarado uma variável escalar 'tag name'<< de valor único!!!
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+            
+        }
+
+        public string[] RetornarDadosComentario()
+        {
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "SELECT tituloComentario, dataComentario, foiVisto, nomeUsuario, descricaoProblema FROM comentarios WHERE idComentario = @idComentario";
+
+            cmd.Parameters.AddWithValue("@idComentario", idComentario);
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                string[] dados = new string[5];
+
+                using(SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        dados[0] = dr.GetString(0);
+                        dados[1] = Convert.ToString(dr.GetDateTime(1));
+                        dados[2] = dr.GetString(2);
+                        dados[3] = dr.GetString(3);
+                        dados[4] = dr.GetString(4);
+                        
+                        return dados;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
 
             }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message);
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+
         }
-        
-        */
+
+        public List<string> RetornarEtiquetasComentario()
+        {
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "SELECT T.descTag FROM tags T INNER JOIN filtro_comentarios FC ON T.idTag = FC.idTag WHERE FC.idComentario = @idComentario";
+
+            cmd.Parameters.AddWithValue("@idComentario", idComentario);
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                List<string> etiquetas = new List<string>();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        etiquetas.Add(dr.GetString(0));
+
+                        while (dr.Read())
+                        {
+                            etiquetas.Add(dr.GetString(0));
+                        }
+                        return etiquetas;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
+            }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message);
+                return null;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+
+        }
+
+        public bool AtualizarComentario()
+        {
+            cmd.CommandText = "UPDATE comentarios SET foiVisto = @foiVisto WHERE idComentario = @idComentario";
+
+            cmd.Parameters.AddWithValue("@foiVisto", isVisto);
+            cmd.Parameters.AddWithValue("@idComentario", idComentario);
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+
+                if(cmd.ExecuteNonQuery() != -1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message);
+                return false;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+
+        }
+
+        public char VerificarVistos()
+        {
+            cmd.Parameters.Clear();
+
+            cmd.CommandText = "SELECT foiVisto FROM comentarios WHERE idComentario = @idComentario";
+
+            cmd.Parameters.AddWithValue("@idComentario", idComentario);
+
+            try
+            {
+                cmd.Connection = conexao.abrirConexao();
+                
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if(dr.Read())
+                    {
+                        char isVisto = Convert.ToChar(dr.GetString(0)); //Não há suporte para o método especificado
+                        return isVisto;
+                    }
+                    else
+                    {
+                        return 'F';
+                    }
+                }
+
+            }
+            catch(SqlException Mensagem)
+            {
+                MessageBox.Show(Mensagem.Message);
+                return 'F';
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+            
+        }
     }
 }

@@ -28,3 +28,4 @@ C:\Users\Joseph2\Desktop\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaRec
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalUsuario.pt-BR.resources
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\pt-BR\prjSistemaReclameEnsino.resources.dll
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\pt-BR\prjSistemaReclameEnsino.resources.dll
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaReviewComentario.resources

@@ -48,6 +48,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                         if (administrador.cadastrarAdministrador())
                         {
                             MessageBox.Show("Administrador Cadastrado com Sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                         else
                         {

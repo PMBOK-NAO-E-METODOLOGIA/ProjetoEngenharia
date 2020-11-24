@@ -32,9 +32,20 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
         private void TelaPrincipalAdministrador_Load(object sender, EventArgs e)
         {
+            DesativarRecursos();
+        }
+
+        private void DesativarRecursos()
+        {
+            entrarToolStripMenuItem.Enabled = true;
             opçõesToolStripMenuItem.Enabled = false;
             gbComentarios.Visible = false;
             lblUsuario.Visible = false;
+            sairToolStripMenuItem.Visible = false;
+            pbAdmin.BackgroundImage = null;
+            enviarComentárioToolStripMenuItem.Enabled = true;
+            cbEtiquetas.Items.Clear();
+            ds.Clear();
 
         }
 
@@ -55,6 +66,8 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             {
                 opçõesToolStripMenuItem.Enabled = true;
                 enviarComentárioToolStripMenuItem.Enabled = false;
+                sairToolStripMenuItem.Visible = true;
+                entrarToolStripMenuItem.Enabled = false;
 
                 pbAdmin.BackgroundImage = prjSistemaReclameEnsino.Properties.Resources.admin;
 
@@ -65,10 +78,54 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             }
         }
 
+        private void VerificacaoVistos()
+        {
+            int aux = 0;
+            int idComentario;
+            char visto;
+
+            while (aux < dgvComentarios.Rows.Count)
+            {
+                idComentario = Convert.ToInt32(dgvComentarios.Rows[aux].Cells[idComentarioDataGridView.Index].Value);
+
+                comentario.setIdComentario(idComentario);
+
+                visto = comentario.VerificarVistos();
+
+                if (visto == 'S')
+                {
+                    for (int i = 0; i < dgvComentarios.ColumnCount; i++)
+                    {
+                        dgvComentarios.Rows[aux].Cells[i].Style.BackColor = Color.LightGreen;
+                    }
+                }
+                else if(visto == 'N')
+                {
+                    for (int i = 0; i<dgvComentarios.ColumnCount; i++)
+                    {
+                        dgvComentarios.Rows[aux].Cells[i].Style.BackColor = Color.IndianRed;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < dgvComentarios.ColumnCount; i++)
+                    {
+                        dgvComentarios.Rows[aux].Cells[i].Style.BackColor = Color.LightYellow;
+                    }
+
+                }
+
+                aux++;
+
+            }
+
+        }
+
+
         private void PreencherDataGridView()
         {
             //Comentario comentario = new Comentario();
-
+            ds.Clear();
             da = comentario.RetornarTodosComentarios();
 
             if (da != null)
@@ -77,6 +134,9 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 dgvComentarios.DataSource = ds;
                 dgvComentarios.DataMember = ds.Tables[0].TableName;
             }
+
+            VerificacaoVistos();
+
         }
 
         private void PreencherEtiquetaComboBox()
@@ -93,145 +153,193 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 }
             }
         }
-        /*
-        private void Filtragem()
+        
+        private SqlDataAdapter Filtragem()
         {
             string titulo = txtTitulo.Text;
             string tag = cbEtiquetas.Text;
+            char condicaoFoiVisto;
             string cmd;
-            bool isAnonimo;
-            bool isVisto;
-            
-            if (String.IsNullOrEmpty(titulo))
+
+            cmd = "SELECT C.idComentario, C.tituloComentario, C.dataComentario FROM comentarios C";
+
+            if(String.IsNullOrEmpty(tag) != true)
             {
-                if (String.IsNullOrEmpty(tag))
+                comentario.setNomeTag(tag);
+                cmd = IncrementarTags(cmd);
+
+                if (String.IsNullOrEmpty(titulo) != true)
                 {
-                    if(rbTrue.Checked == true)
-                    {
-                        isAnonimo = true;
-                        cmd = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios WHERE ISNULL(nomeUsuario)";
-                        if(rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                            cmd += " AND foiVisto = S";
-                        }
-                        else
-                        {
-                            isVisto = false;
-                            cmd += " AND foiVisto = N"; 
-                        }
-                    }
-                    else
-                    {
-                        isAnonimo = false;
-                        cmd = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios WHERE";
-                        if (rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                            cmd += " foiVisto = S";
-                        }
-                        else
-                        {
-                            isVisto = false;
-                            cmd += " foiVisto = N";
-                        }
-                    }
+                    comentario.setTituloComentario(titulo);
+                    cmd = IncrementarTituloComOutras(cmd);
+                }
+
+                if(rbTrue.Checked == true)
+                {
+                    cmd = IncrementarAnonimoComOutras(cmd);
+                }
+
+                if(rbVistoTrue.Checked == true)
+                {
+                    condicaoFoiVisto = 'S';
                 }
                 else
                 {
-                    cmd = "SELECT idComentario, tituloComentario, dataComentario FROM comentarios C INNER JOIN filtro_comentarios FC ON C.idComentario = FC.idComentario INNER JOIN tags T ON FC.idTag = T.idTag WHERE "
-                    if (rbTrue.Checked == true)
-                    {
-                        isAnonimo = true;
-                        if (rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                        }
-                        else
-                        {
-                            isVisto = false;
-                        }
-                    }
-                    else
-                    {
-                        isAnonimo = false;
-                        if (rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                        }
-                        else
-                        {
-                            isVisto = false;
-                        }
-                    }
+                    condicaoFoiVisto = 'N';
                 }
+                comentario.setIsVisto(condicaoFoiVisto);
+                cmd = IncrementarFoiVistoComOutras(cmd);
             }
             else
             {
-                if (String.IsNullOrEmpty(tag))
+                if (rbTrue.Checked == true)
                 {
-                    if (rbTrue.Checked == true)
+                    cmd = IncrementarAnonimo(cmd);
+
+                    if (String.IsNullOrEmpty(titulo) != true)
                     {
-                        isAnonimo = true;
-                        if (rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                        }
-                        else
-                        {
-                            isVisto = false;
-                        }
+                        comentario.setTituloComentario(titulo);
+                        cmd = IncrementarTituloComOutras(cmd);
+                    }
+
+                    if (rbVistoTrue.Checked == true)
+                    {
+                        condicaoFoiVisto = 'S';
                     }
                     else
                     {
-                        isAnonimo = false;
-                        if (rbVistoTrue.Checked == true)
-                        {
-                            isVisto = true;
-                        }
-                        else
-                        {
-                            isVisto = false;
-                        }
+                        condicaoFoiVisto = 'N';
                     }
+
+                    comentario.setIsVisto(condicaoFoiVisto);
+                    cmd = IncrementarFoiVistoComOutras(cmd);
+
                 }
                 else
                 {
-                    if (rbTrue.Checked == true)
+                    if (String.IsNullOrEmpty(titulo) != true)
                     {
-                        isAnonimo = true;
+                        comentario.setTituloComentario(titulo);
+                        cmd = IncrementarTitulo(cmd);
+
                         if (rbVistoTrue.Checked == true)
                         {
-                            isVisto = true;
+                            condicaoFoiVisto = 'S';
                         }
                         else
                         {
-                            isVisto = false;
+                            condicaoFoiVisto = 'N';
                         }
+
+                        comentario.setIsVisto(condicaoFoiVisto);
+                        cmd = IncrementarFoiVistoComOutras(cmd);
+
                     }
                     else
                     {
-                        isAnonimo = false;
                         if (rbVistoTrue.Checked == true)
                         {
-                            isVisto = true;
+                            condicaoFoiVisto = 'S';
                         }
                         else
                         {
-                            isVisto = false;
+                            condicaoFoiVisto = 'N';
                         }
+
+                        comentario.setIsVisto(condicaoFoiVisto);
+                        cmd = IncrementarFoiVisto(cmd);
                     }
                 }
             }
 
-
-
+            return comentario.RetornarComentariosFiltrados(cmd);
 
         }
-        */
+        
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            
+            da = Filtragem();
 
+            if(da != null)
+            {
+                ds.Clear();
+                da.Fill(ds); // Resolvido!!! <<< Bug do SelectCommand Fill
+                dgvComentarios.DataSource = ds;
+                dgvComentarios.DataMember = ds.Tables[0].TableName;
+                da.Dispose();
+            }
+
+            VerificacaoVistos();
+
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DesativarRecursos();
+        }
+
+        private string IncrementarTitulo(string cmdSql)
+        {
+            cmdSql += " WHERE C.tituloComentario = @tituloComentario";
+            return cmdSql;
+        }
+
+        private string IncrementarTituloComOutras(string cmdSql)
+        {
+            cmdSql += " AND C.tituloComentario = @tituloComentario";
+            return cmdSql;
+        }
+
+        private string IncrementarAnonimo(string cmdSql)
+        {
+            cmdSql += " WHERE C.nomeUsuario = 'ANÔNIMO'";
+            return cmdSql;
+        }
+
+        private string IncrementarAnonimoComOutras(string cmdSql)
+        {
+            cmdSql += " AND C.nomeUsuario = 'ANÔNIMO'";
+            return cmdSql;
+        }
+
+        private string IncrementarFoiVisto(string cmdSql)
+        {
+            cmdSql += " WHERE C.foiVisto = @foiVisto";
+            return cmdSql;
+        }
+
+        private string IncrementarFoiVistoComOutras(string cmdSql)
+        {
+            cmdSql += " AND C.foiVisto = @foiVisto";
+            return cmdSql;
+        }
+
+        private string IncrementarTags(string cmdSql)
+        {
+            cmdSql += " INNER JOIN filtro_comentarios FC ON C.idComentario = FC.idComentario INNER JOIN " +
+                " tags T ON T.idTag = FC.idTag WHERE T.descTag = @descTag";
+
+            return cmdSql;
+        }
+
+        private void dgvComentarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idComentario = Convert.ToInt32(dgvComentarios.Rows[e.RowIndex].Cells[idComentarioDataGridView.Index].Value);
+            
+            comentario.setIdComentario(idComentario);
+
+            new TelaReviewComentario(comentario).ShowDialog();
+
+            PreencherDataGridView();
+
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            PreencherDataGridView();
+            txtTitulo.Clear();
+            cbEtiquetas.Text = "";
         }
     }
 }

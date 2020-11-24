@@ -98,6 +98,7 @@
             this.Controls.Add(this.btnEntrar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaLoginAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrar";
             this.ResumeLayout(false);
             this.PerformLayout();
