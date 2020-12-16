@@ -44,12 +44,16 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtDescritivo = new System.Windows.Forms.RichTextBox();
-            this.chkVisto = new System.Windows.Forms.CheckBox();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtResposta = new System.Windows.Forms.RichTextBox();
+            this.btnEnviarComentario = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDestinatario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtID
@@ -71,6 +75,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDestinatario);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtAutor);
             this.groupBox1.Controls.Add(this.label5);
@@ -83,7 +89,7 @@
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 142);
+            this.groupBox1.Size = new System.Drawing.Size(335, 162);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Comentário";
@@ -178,47 +184,25 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtDescritivo);
-            this.groupBox3.Location = new System.Drawing.Point(12, 160);
+            this.groupBox3.Location = new System.Drawing.Point(12, 180);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(496, 134);
+            this.groupBox3.Size = new System.Drawing.Size(496, 114);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Descritivo";
             // 
             // txtDescritivo
             // 
-            this.txtDescritivo.Location = new System.Drawing.Point(16, 23);
+            this.txtDescritivo.Location = new System.Drawing.Point(16, 19);
             this.txtDescritivo.Name = "txtDescritivo";
             this.txtDescritivo.ReadOnly = true;
-            this.txtDescritivo.Size = new System.Drawing.Size(462, 96);
+            this.txtDescritivo.Size = new System.Drawing.Size(462, 83);
             this.txtDescritivo.TabIndex = 0;
             this.txtDescritivo.Text = "";
             // 
-            // chkVisto
-            // 
-            this.chkVisto.AutoSize = true;
-            this.chkVisto.Location = new System.Drawing.Point(469, 337);
-            this.chkVisto.Name = "chkVisto";
-            this.chkVisto.Size = new System.Drawing.Size(49, 17);
-            this.chkVisto.TabIndex = 5;
-            this.chkVisto.Text = "Visto";
-            this.chkVisto.UseVisualStyleBackColor = true;
-            this.chkVisto.CheckedChanged += new System.EventHandler(this.chkVisto_CheckedChanged);
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Enabled = false;
-            this.btnAtualizar.Location = new System.Drawing.Point(12, 303);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(106, 51);
-            this.btnAtualizar.TabIndex = 6;
-            this.btnAtualizar.Text = "Atualizar Comentário";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
-            // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(124, 303);
+            this.btnSair.Location = new System.Drawing.Point(154, 440);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(113, 51);
             this.btnSair.TabIndex = 7;
@@ -226,14 +210,60 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtResposta);
+            this.groupBox4.Location = new System.Drawing.Point(12, 300);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(496, 134);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Resposta";
+            // 
+            // txtResposta
+            // 
+            this.txtResposta.Location = new System.Drawing.Point(16, 23);
+            this.txtResposta.Name = "txtResposta";
+            this.txtResposta.Size = new System.Drawing.Size(462, 96);
+            this.txtResposta.TabIndex = 0;
+            this.txtResposta.Text = "";
+            this.txtResposta.TextChanged += new System.EventHandler(this.txtResposta_TextChanged);
+            // 
+            // btnEnviarComentario
+            // 
+            this.btnEnviarComentario.Location = new System.Drawing.Point(12, 440);
+            this.btnEnviarComentario.Name = "btnEnviarComentario";
+            this.btnEnviarComentario.Size = new System.Drawing.Size(134, 51);
+            this.btnEnviarComentario.TabIndex = 8;
+            this.btnEnviarComentario.Text = "Enviar Resposta";
+            this.btnEnviarComentario.UseVisualStyleBackColor = true;
+            this.btnEnviarComentario.Click += new System.EventHandler(this.btnEnviarComentario_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "E-mail";
+            // 
+            // txtDestinatario
+            // 
+            this.txtDestinatario.Location = new System.Drawing.Point(20, 123);
+            this.txtDestinatario.Name = "txtDestinatario";
+            this.txtDestinatario.ReadOnly = true;
+            this.txtDestinatario.Size = new System.Drawing.Size(303, 20);
+            this.txtDestinatario.TabIndex = 11;
+            // 
             // TelaReviewComentario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 363);
+            this.ClientSize = new System.Drawing.Size(530, 503);
+            this.Controls.Add(this.btnEnviarComentario);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnSair);
-            this.Controls.Add(this.btnAtualizar);
-            this.Controls.Add(this.chkVisto);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -242,12 +272,13 @@
             this.Name = "TelaReviewComentario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comentário";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaReviewComentario_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -268,8 +299,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox txtDescritivo;
-        private System.Windows.Forms.CheckBox chkVisto;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RichTextBox txtResposta;
+        private System.Windows.Forms.Button btnEnviarComentario;
+        private System.Windows.Forms.TextBox txtDestinatario;
+        private System.Windows.Forms.Label label3;
     }
 }

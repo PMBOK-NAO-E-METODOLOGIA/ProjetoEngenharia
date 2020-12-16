@@ -119,34 +119,34 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 306</value>
+    <value>12, 362</value>
   </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 26</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 72</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 274</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Deixe-nos saber um pouco</value>
-  </data>
-  <data name="chkTags.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 153</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 133</value>
-  </data>
-  <data name="txtAutor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 96</value>
+  <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 88</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 81</value>
+    <value>9, 24</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 13</value>
+    <value>70, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Identifique-se caso queira</value>
+    <value>Identifique-se</value>
+  </data>
+  <data name="txtAutor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 123</value>
+  </data>
+  <data name="chkTags.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 224</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 204</value>
   </data>
   <data name="txtTituloComentario.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 43</value>
@@ -163,8 +163,17 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Dê um título à sua sugestão</value>
   </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 26</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 330</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Deixe-nos saber um pouco</value>
+  </data>
   <data name="lblLimiteCaracter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 245</value>
+    <value>225, 305</value>
   </data>
   <data name="lblLimiteCaracter.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 13</value>
@@ -179,6 +188,9 @@
   <data name="txtDescritivo.MaxLength" type="System.Int32, mscorlib">
     <value>1000</value>
   </data>
+  <data name="txtDescritivo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 272</value>
+  </data>
   <data name="txtDescritivo.Text" xml:space="preserve">
     <value />
   </data>
@@ -186,13 +198,13 @@
     <value>318, 26</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 274</value>
+    <value>266, 330</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Conte-nos o que sugere...</value>
   </data>
   <data name="btnEnviarComentario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 307</value>
+    <value>445, 362</value>
   </data>
   <data name="btnEnviarComentario.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 53</value>
@@ -201,7 +213,7 @@
     <value>Comentar!</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>596, 370</value>
+    <value>596, 427</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

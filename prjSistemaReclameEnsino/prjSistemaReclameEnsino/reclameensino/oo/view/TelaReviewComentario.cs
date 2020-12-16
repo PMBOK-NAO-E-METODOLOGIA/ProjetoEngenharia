@@ -15,14 +15,18 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 {
     public partial class TelaReviewComentario : Form
     {
-        
-        public TelaReviewComentario(Comentario comentario)
+
+        Pessoa.Administrador admin;
+        Comentario comentario;
+        public TelaReviewComentario(Comentario comentario, Pessoa.Administrador administrador)
         {
             InitializeComponent();
+            this.comentario = comentario;
+            this.admin = administrador;
 
             txtID.Text = Convert.ToString(comentario.getIdComentario());
 
-            string[] dados = new string[5];
+            string[] dados = new string[6];
 
             //Falha --> Conexão estava fechada!!!!
             dados = comentario.RetornarDadosComentario();
@@ -33,14 +37,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             txtVisto.Text = dados[2];
             txtAutor.Text = dados[3];
             txtDescritivo.Text = dados[4];
-
-            if(txtVisto.Text == "S")
-            {
-                chkVisto.Enabled = false;
-                chkVisto.Checked = true;
-                btnAtualizar.Enabled = false;
-            }
-
+            txtDestinatario.Text = dados[5];
 
             List<string> etiquetas = new List<string>();
             etiquetas = comentario.RetornarEtiquetasComentario();
@@ -72,35 +69,85 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             this.Close();
         }
 
-        private void chkVisto_CheckedChanged(object sender, EventArgs e)
+        private void TelaReviewComentario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(chkVisto.Checked == true)
+            char visto = Convert.ToChar(txtVisto.Text);
+            if (visto != 'S')
             {
-                btnAtualizar.Enabled = true;
-            }
-            else
-            {
-                btnAtualizar.Enabled = false;
-            }
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            if(chkVisto.Checked == true)
-            {
-                char visto = 'S';
+                /*
                 int idComentario = Convert.ToInt32(txtID.Text);
                 Comentario comentario = new Comentario();
 
                 comentario.setIdComentario(idComentario);
+                */
+                visto = 'S';
                 comentario.setIsVisto(visto);
 
                 if (comentario.AtualizarComentario())
                 {
                     MessageBox.Show("Comentário " + txtTitulo.Text + " vistado!");
-                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao vistar o comentário!", "Atenção");
                 }
             }
+
+        }
+
+        private void txtResposta_TextChanged(object sender, EventArgs e)
+        {
+            if(txtResposta.Text != null)
+            {
+                btnEnviarComentario.Enabled = true;
+            }
+            else
+            {
+                btnEnviarComentario.Enabled = false;
+            }
+        }
+
+        private void EnviarResposta()
+        {
+            string emailAdmin = admin.RetornaEmailAdmin();
+            string emailUsuario = txtDestinatario.Text;
+            string titulo = txtTitulo.Text;
+            string resposta = txtResposta.Text;
+            //É necessário pegar a senha do email.....
+
+            if(emailAdmin == null || emailUsuario == null)
+            {
+                //Fazer método para registrar as alterações no comentário vigente.
+                comentario.AtualizarRespostaComentario(resposta, admin.getIdAdmin());
+
+            }
+            else
+            {
+                //Receber a senha do e-mail do admin posteriormente!!!!!
+                new CredenciaisEmail(comentario).ShowDialog();
+
+                if(comentario.getSenhaEmailAdmin() == null)
+                {
+                    MessageBox.Show("Senha de E-mail não pode ser vázia!", "Atenção");
+                }
+                else
+                {
+
+                    comentario.AtualizarRespostaComentario(resposta, admin.getIdAdmin());
+
+                    E_mail mail = new E_mail(admin);
+
+                    string retorno = comentario.EnviaMensagemEmail(emailUsuario, emailAdmin, titulo, resposta, mail);
+
+                    MessageBox.Show(retorno, "Atenção");
+                }
+            }
+            this.Close();
+        }
+
+        private void btnEnviarComentario_Click(object sender, EventArgs e)
+        {
+            EnviarResposta();
         }
     }
 }

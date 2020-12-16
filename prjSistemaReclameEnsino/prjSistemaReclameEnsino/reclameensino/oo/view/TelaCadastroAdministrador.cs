@@ -24,6 +24,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             string nomeAdmin = txtNomePessoa.Text;
             string usuarioAdmin = txtUsuario.Text;
             string senhaAdmin = txtSenha.Text;
+            string emailAdmin = txtEmail.Text;
 
             if (String.IsNullOrEmpty(nomeAdmin))
             {
@@ -43,17 +44,36 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                     }
                     else
                     {
-                        Pessoa.Administrador administrador = new Pessoa.Administrador(nomeAdmin, usuarioAdmin, senhaAdmin);
-
-                        if (administrador.cadastrarAdministrador())
+                        if (String.IsNullOrEmpty(emailAdmin))
                         {
-                            MessageBox.Show("Administrador Cadastrado com Sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            Pessoa.Administrador administrador = new Pessoa.Administrador(nomeAdmin, usuarioAdmin, senhaAdmin);
+
+                            if (administrador.cadastrarAdministrador())
+                            {
+                                MessageBox.Show("Administrador Cadastrado com Sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Falha ao Cadastrar o Administrador", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Falha ao Cadastrar o Administrador", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Pessoa.Administrador administrador = new Pessoa.Administrador(nomeAdmin, usuarioAdmin, senhaAdmin, emailAdmin);
+
+                            if (administrador.cadastrarAdministrador())
+                            {
+                                MessageBox.Show("Administrador Cadastrado com Sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Falha ao Cadastrar o Administrador", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
+
+                        
 
                     }
                 }

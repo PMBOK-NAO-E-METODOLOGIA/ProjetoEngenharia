@@ -35,11 +35,13 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
         public class Administrador : Pessoa
         {
-            
+
+            private int idAdmin;
             private string nomeUsuario;
             private string senhaUsuario;
             static private bool isEntrou;
             private DateTime dataAtual = DateTime.Today;
+            private string emailAdmin;
 
             public Administrador()
             {
@@ -50,6 +52,22 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
             {
                 this.nomeUsuario = nomeUsuario;
                 this.senhaUsuario = senhaUsuario;
+            }
+
+            public Administrador(string nomePessoa, string nomeUsuario, string senhaUsuario, string email) : base(nomePessoa)
+            {
+                this.nomeUsuario = nomeUsuario;
+                this.senhaUsuario = senhaUsuario;
+                this.emailAdmin = email;
+            }
+
+            public int getIdAdmin()
+            {
+                return idAdmin;
+            }
+            public string getEmailAdmin()
+            {
+                return emailAdmin;
             }
 
             public void setNomeUsuario(string nome)
@@ -87,16 +105,61 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
              * Ass.: @Paulo Vinicius
              *       22/10/2020
              */
+
+            public string RetornaEmailAdmin()
+            {
+                cmd.Parameters.Clear();
+
+                cmd.CommandText = "SELECT emailAdmin FROM tb_administradores WHERE nomeUsuario = @nomeUsuario";
+
+                cmd.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
+
+                try
+                {
+                    cmd.Connection = conexao.abrirConexao();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            if (dr.IsDBNull(0))
+                            {
+                                return null;
+                            }
+                            else
+                            {
+                                emailAdmin = dr.GetString(0);
+                                return emailAdmin;
+                            }
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+                catch(SqlException Mensagem)
+                {
+                    MessageBox.Show(Mensagem.Message);
+                    return null;
+                }
+                finally
+                {
+                    conexao.fecharConexao();
+                }
+            }
+
             public bool cadastrarAdministrador()
             {
 
-                cmd.CommandText = "INSERT INTO tb_administradores (nomeAdmin, nomeUsuario, senhaUsuario, dataCadastro, isAtivo) VALUES (@nomeAdmin, @nomeUsuario, @senhaUsuario, @dataCadastro, @isAtivo)";
+                cmd.CommandText = "INSERT INTO tb_administradores (nomeAdmin, nomeUsuario, senhaUsuario, dataCadastro, isAtivo, emailAdmin) VALUES (@nomeAdmin, @nomeUsuario, @senhaUsuario, @dataCadastro, @isAtivo, @emailAdmin)";
 
                 cmd.Parameters.AddWithValue("@nomeAdmin", nomePessoa);
                 cmd.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
                 cmd.Parameters.AddWithValue("@senhaUsuario", senhaUsuario);
                 cmd.Parameters.AddWithValue("@dataCadastro", dataAtual);
                 cmd.Parameters.AddWithValue("@isAtivo", 'S');
+                cmd.Parameters.AddWithValue("@emailAdmin", emailAdmin);
 
                 try
                 {
@@ -126,6 +189,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
 
             public bool validarAcesso()
             {
+                cmd.Parameters.Clear();
                 cmd.CommandText = "SELECT idAdmin FROM tb_administradores WHERE nomeUsuario = @nomeUsuario AND senhaUsuario = @senhaUsuario";
 
                 cmd.Parameters.AddWithValue("@nomeUsuario", nomeUsuario);
@@ -140,6 +204,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.model
                         if (dr.Read())
                         {
                             isEntrou = true;
+                            idAdmin = dr.GetInt32(0);
                             return isEntrou;
                         }
                         else

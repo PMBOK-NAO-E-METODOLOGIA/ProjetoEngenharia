@@ -32,10 +32,12 @@
             this.msOpcoes = new System.Windows.Forms.MenuStrip();
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarAdministradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarComentárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbComentarios = new System.Windows.Forms.GroupBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbVistoFalse = new System.Windows.Forms.RadioButton();
             this.rbVistoTrue = new System.Windows.Forms.RadioButton();
@@ -53,7 +55,7 @@
             this.dataComentarioDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pbAdmin = new System.Windows.Forms.PictureBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
+            this.gráficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msOpcoes.SuspendLayout();
             this.gbComentarios.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,18 +68,21 @@
             // 
             this.msOpcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opçõesToolStripMenuItem,
+            this.gráficoToolStripMenuItem,
+            this.configuraçãoToolStripMenuItem,
             this.entrarToolStripMenuItem,
             this.enviarComentárioToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.msOpcoes.Location = new System.Drawing.Point(0, 0);
             this.msOpcoes.Name = "msOpcoes";
-            this.msOpcoes.Size = new System.Drawing.Size(643, 24);
+            this.msOpcoes.Size = new System.Drawing.Size(667, 24);
             this.msOpcoes.TabIndex = 1;
             // 
             // opçõesToolStripMenuItem
             // 
             this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarAdministradorToolStripMenuItem});
+            this.opçõesToolStripMenuItem.Enabled = false;
             this.opçõesToolStripMenuItem.Image = global::prjSistemaReclameEnsino.Properties.Resources.option;
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
             this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
@@ -90,6 +95,14 @@
             this.cadastrarAdministradorToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.cadastrarAdministradorToolStripMenuItem.Text = "Cadastrar Administrador";
             this.cadastrarAdministradorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarAdministradorToolStripMenuItem_Click);
+            // 
+            // configuraçãoToolStripMenuItem
+            // 
+            this.configuraçãoToolStripMenuItem.Enabled = false;
+            this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
+            this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraçãoToolStripMenuItem.Text = "Config. E-mail";
+            this.configuraçãoToolStripMenuItem.Click += new System.EventHandler(this.configuraçãoToolStripMenuItem_Click);
             // 
             // entrarToolStripMenuItem
             // 
@@ -131,6 +144,17 @@
             this.gbComentarios.TabIndex = 3;
             this.gbComentarios.TabStop = false;
             this.gbComentarios.Text = "Comentários";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnLimpar.Location = new System.Drawing.Point(252, 91);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(88, 34);
+            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // groupBox1
             // 
@@ -286,7 +310,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(532, 182);
+            this.lblUsuario.Location = new System.Drawing.Point(544, 182);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(55, 13);
             this.lblUsuario.TabIndex = 0;
@@ -295,29 +319,25 @@
             // pbAdmin
             // 
             this.pbAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAdmin.Location = new System.Drawing.Point(482, 45);
+            this.pbAdmin.Location = new System.Drawing.Point(497, 38);
             this.pbAdmin.Name = "pbAdmin";
             this.pbAdmin.Size = new System.Drawing.Size(149, 129);
             this.pbAdmin.TabIndex = 2;
             this.pbAdmin.TabStop = false;
             // 
-            // btnLimpar
+            // gráficoToolStripMenuItem
             // 
-            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnLimpar.Location = new System.Drawing.Point(252, 91);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(88, 34);
-            this.btnLimpar.TabIndex = 8;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.gráficoToolStripMenuItem.Name = "gráficoToolStripMenuItem";
+            this.gráficoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.gráficoToolStripMenuItem.Text = "Gráfico";
+            this.gráficoToolStripMenuItem.Click += new System.EventHandler(this.gráficoToolStripMenuItem_Click);
             // 
             // TelaPrincipalAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(643, 402);
+            this.ClientSize = new System.Drawing.Size(667, 410);
             this.Controls.Add(this.gbComentarios);
             this.Controls.Add(this.pbAdmin);
             this.Controls.Add(this.lblUsuario);
@@ -370,5 +390,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloComentarioDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataComentarioDataGridView;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gráficoToolStripMenuItem;
     }
 }

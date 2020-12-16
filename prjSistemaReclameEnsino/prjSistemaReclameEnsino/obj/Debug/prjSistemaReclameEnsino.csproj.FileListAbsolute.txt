@@ -29,3 +29,13 @@ C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\P
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\pt-BR\prjSistemaReclameEnsino.resources.dll
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\pt-BR\prjSistemaReclameEnsino.resources.dll
 C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaReviewComentario.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaPrincipalUsuario.en.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\en\prjSistemaReclameEnsino.resources.dll
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\en\prjSistemaReclameEnsino.resources.dll
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.CredenciaisEmail.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaConfigEmail.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.reclameensino.oo.view.TelaRelatorioGrafico.resources
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.exe.manifest
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\obj\Debug\prjSistemaReclameEnsino.application
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.exe.manifest
+C:\Users\FATEC\Desktop\Engenharia de Software III\ProjetoEngenhariaRepositorio\ProjetoEngenharia\prjSistemaReclameEnsino\prjSistemaReclameEnsino\prjSistemaReclameEnsino.application

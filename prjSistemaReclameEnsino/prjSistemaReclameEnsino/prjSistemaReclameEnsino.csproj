@@ -12,7 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\FATEC\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,9 +49,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>98D5DF8D8E284DE40B314BB90E8444011802438C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>prjSistemaReclameEnsino_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,12 +82,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reclameensino\oo\model\Comentario.cs" />
     <Compile Include="reclameensino\oo\model\ConexaoBD.cs" />
+    <Compile Include="reclameensino\oo\model\E-mail.cs" />
     <Compile Include="reclameensino\oo\model\Pessoa.cs" />
+    <Compile Include="reclameensino\oo\view\CredenciaisEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reclameensino\oo\view\CredenciaisEmail.Designer.cs">
+      <DependentUpon>CredenciaisEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="reclameensino\oo\view\TelaCadastroAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="reclameensino\oo\view\TelaCadastroAdministrador.Designer.cs">
       <DependentUpon>TelaCadastroAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reclameensino\oo\view\TelaConfigEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reclameensino\oo\view\TelaConfigEmail.Designer.cs">
+      <DependentUpon>TelaConfigEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="reclameensino\oo\view\TelaLoginAdmin.cs">
       <SubType>Form</SubType>
@@ -90,6 +120,12 @@
     <Compile Include="reclameensino\oo\view\TelaPrincipalUsuario.Designer.cs">
       <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="reclameensino\oo\view\TelaRelatorioGrafico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reclameensino\oo\view\TelaRelatorioGrafico.Designer.cs">
+      <DependentUpon>TelaRelatorioGrafico.cs</DependentUpon>
+    </Compile>
     <Compile Include="reclameensino\oo\view\TelaReviewComentario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,8 +142,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reclameensino\oo\view\CredenciaisEmail.resx">
+      <DependentUpon>CredenciaisEmail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaCadastroAdministrador.resx">
       <DependentUpon>TelaCadastroAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reclameensino\oo\view\TelaConfigEmail.resx">
+      <DependentUpon>TelaConfigEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaLoginAdmin.resx">
       <DependentUpon>TelaLoginAdmin.cs</DependentUpon>
@@ -115,11 +157,17 @@
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalAdministrador.resx">
       <DependentUpon>TelaPrincipalAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.en.resx">
+      <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.pt-BR.resx">
       <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaPrincipalUsuario.resx">
       <DependentUpon>TelaPrincipalUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reclameensino\oo\view\TelaRelatorioGrafico.resx">
+      <DependentUpon>TelaRelatorioGrafico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reclameensino\oo\view\TelaReviewComentario.resx">
       <DependentUpon>TelaReviewComentario.cs</DependentUpon>
@@ -143,6 +191,7 @@
       <DependentUpon>ReclameEnsinoBD.mdf</DependentUpon>
     </Content>
     <Content Include="reclameensino\oo\icons\admin.png" />
+    <Content Include="reclameensino\oo\icons\LogoSistemaReclameEnsino.png" />
     <None Include="reclameensino\oo\icons\loupe%282%29.ico" />
     <None Include="reclameensino\oo\icons\loupe%281%29.ico" />
     <None Include="reclameensino\oo\icons\loupe.ico" />

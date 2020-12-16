@@ -31,10 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalUsuario));
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkAnonimo = new System.Windows.Forms.CheckBox();
+            this.txtAutor = new System.Windows.Forms.TextBox();
             this.chkTags = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtAutor = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtTituloComentario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -42,6 +46,7 @@
             this.txtDescritivo = new System.Windows.Forms.RichTextBox();
             this.btnEnviarComentario = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,15 +63,53 @@
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.chkTags);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtAutor);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTituloComentario);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.txtEmail);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.chkAnonimo);
+            this.groupBox3.Controls.Add(this.txtAutor);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // txtEmail
+            // 
+            resources.ApplyResources(this.txtEmail, "txtEmail");
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtEmail.Name = "txtEmail";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // chkAnonimo
+            // 
+            resources.ApplyResources(this.chkAnonimo, "chkAnonimo");
+            this.chkAnonimo.Name = "chkAnonimo";
+            this.chkAnonimo.UseVisualStyleBackColor = true;
+            this.chkAnonimo.CheckedChanged += new System.EventHandler(this.chkAnonimo_CheckedChanged);
+            // 
+            // txtAutor
+            // 
+            resources.ApplyResources(this.txtAutor, "txtAutor");
+            this.txtAutor.Name = "txtAutor";
             // 
             // chkTags
             // 
@@ -80,16 +123,6 @@
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            // 
-            // txtAutor
-            // 
-            resources.ApplyResources(this.txtAutor, "txtAutor");
-            this.txtAutor.Name = "txtAutor";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
             // 
             // txtTituloComentario
             // 
@@ -145,6 +178,8 @@
             this.Load += new System.EventHandler(this.TelaPrincipalUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -164,5 +199,9 @@
         private System.Windows.Forms.RichTextBox txtDescritivo;
         private System.Windows.Forms.Button btnEnviarComentario;
         private System.Windows.Forms.Label lblLimiteCaracter;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.CheckBox chkAnonimo;
     }
 }

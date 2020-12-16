@@ -15,9 +15,11 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
     public partial class TelaLoginAdmin : Form
     {
         Thread thread;
-        public TelaLoginAdmin()
+        Pessoa.Administrador administrador;// = new Pessoa.Administrador();
+        public TelaLoginAdmin(Pessoa.Administrador administrador)
         {
             InitializeComponent();
+            this.administrador = administrador;
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -37,8 +39,6 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 }
                 else
                 {
-                    Pessoa.Administrador administrador = new Pessoa.Administrador();
-
                     administrador.setNomeUsuario(usuario);
                     administrador.setSenhaUsuario(senha);
 

@@ -23,7 +23,6 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
         {
             InitializeComponent();
         }
-
         private void cadastrarAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaCadastroAdministrador cadastroAdministrador = new TelaCadastroAdministrador();
@@ -33,6 +32,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
         private void TelaPrincipalAdministrador_Load(object sender, EventArgs e)
         {
             DesativarRecursos();
+            new TelaRelatorioGrafico().Show();
         }
 
         private void DesativarRecursos()
@@ -44,6 +44,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             sairToolStripMenuItem.Visible = false;
             pbAdmin.BackgroundImage = null;
             enviarComentárioToolStripMenuItem.Enabled = true;
+            configuraçãoToolStripMenuItem.Enabled = false;
             cbEtiquetas.Items.Clear();
             ds.Clear();
 
@@ -58,7 +59,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
 
         private void entrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TelaLoginAdmin loginAdmin = new TelaLoginAdmin();
+            TelaLoginAdmin loginAdmin = new TelaLoginAdmin(admin);
 
             loginAdmin.ShowDialog();
 
@@ -68,10 +69,11 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
                 enviarComentárioToolStripMenuItem.Enabled = false;
                 sairToolStripMenuItem.Visible = true;
                 entrarToolStripMenuItem.Enabled = false;
-
+                configuraçãoToolStripMenuItem.Enabled = true;
                 pbAdmin.BackgroundImage = prjSistemaReclameEnsino.Properties.Resources.admin;
 
                 gbComentarios.Visible = true;
+                lblUsuario.Text = admin.getNomeUsuario();
                 lblUsuario.Visible = true;
                 PreencherDataGridView();
                 PreencherEtiquetaComboBox();
@@ -329,7 +331,7 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             
             comentario.setIdComentario(idComentario);
 
-            new TelaReviewComentario(comentario).ShowDialog();
+            new TelaReviewComentario(comentario, admin).ShowDialog();
 
             PreencherDataGridView();
 
@@ -340,6 +342,16 @@ namespace prjSistemaReclameEnsino.reclameensino.oo.view
             PreencherDataGridView();
             txtTitulo.Clear();
             cbEtiquetas.Text = "";
+        }
+
+        private void configuraçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new TelaConfigEmail(admin).ShowDialog();
+        }
+
+        private void gráficoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new TelaRelatorioGrafico().ShowDialog();
         }
     }
 }
